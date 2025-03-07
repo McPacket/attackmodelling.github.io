@@ -13,16 +13,24 @@
         body {
             font-family: 'Nunito', sans-serif; /* Changed to Nunito */
             line-height: 1.6;
-            margin: 20px;
+            margin: 0;
             background-color: #f4f4f4;
+            display: flex; /* Use flexbox for layout */
+        }
+        .sidebar {
+            width: 250px; /* Width of the sidebar */
+            background-color: #e2e2e2;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .content {
+            flex: 1; /* Take the remaining space */
+            padding: 20px;
         }
         h1, h2, h3 {
             color: #333;
         }
         .toc {
-            background-color: #e2e2e2;
-            padding: 10px;
-            border-radius: 5px;
             margin-bottom: 20px;
         }
         .toc a {
@@ -44,51 +52,99 @@
             height: auto;
             margin: 20px 0;
         }
+        .nested {
+            display: none; /* Hide nested items by default */
+            padding-left: 20px; /* Indent nested items */
+        }
+        .toggle {
+            cursor: pointer; /* Change cursor to indicate clickable */
+            color: #007BFF;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Blog Article Title</h1>
-
-    <!-- Table of Contents -->
-    <div class="toc">
-        <h2>Table of Contents</h2>
+    <!-- Sidebar for Page Index -->
+    <div class="sidebar">
+        <h2>Page Index</h2>
         <ul>
-            <li><a href="#section1">Section 1: Introduction</a></li>
-            <li><a href="#section2">Section 2: Code Snippets</a></li>
-            <li><a href="#section3">Section 3: Screenshots</a></li>
-            <li><a href="#section4">Conclusion</a></li>
+            <li class="toggle">Introduction
+                <ul class="nested">
+                    <li><a href="#section1">Overview</a></li>
+                    <li><a href="#section2">Background</a></li>
+                </ul>
+            </li>
+            <li class="toggle">Code Snippets
+                <ul class="nested">
+                    <li><a href="#section3">Example Code</a></li>
+                    <li><a href="#section4">Advanced Techniques</a></li>
+                </ul>
+            </li>
+            <li class="toggle">Screenshots
+                <ul class="nested">
+                    <li><a href="#section5">Example Screenshot</a></li>
+                </ul>
+            </li>
+            <li><a href="#section6">Conclusion</a></li>
         </ul>
     </div>
 
-    <!-- Article Sections -->
-    <h2 id="section1">Section 1: Introduction</h2>
-    <p>This section introduces the topic of the blog article. You can provide background information and set the stage for the content that follows.</p>
+    <!-- Main Content Area -->
+    <div class="content">
+        <h1>Blog Article Title</h1>
 
-    <h2 id="section2">Section 2: Code Snippets</h2>
-    <p>Here is an example of a code snippet:</p>
-    <div class="code-snippet">
-        <pre>
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#section1">Section 1: Introduction</a></li>
+                <li><a href="#section2">Section 2: Code Snippets</a></li>
+                <li><a href="#section3">Section 3: Screenshots</a></li>
+                <li><a href="#section4">Conclusion</a></li>
+            </ul>
+        </div>
+
+        <!-- Article Sections -->
+        <h2 id="section1">Section 1: Introduction</h2>
+        <p>This section introduces the topic of the blog article. You can provide background information and set the stage for the content that follows.</p>
+
+        <h2 id="section2">Section 2: Code Snippets</h2>
+        <p>Here is an example of a code snippet:</p>
+        <div class="code-snippet">
+            <pre>
 <code>
 function helloWorld() {
     console.log('Hello, World!');
 }
 </code>
-        </pre>
+            </pre>
+        </div>
+        <p>Feel free to modify the code as needed.</p>
+
+        <h2 id="section3">Section 3: Screenshots</h2>
+        <p>Below is an example of a screenshot:</p>
+        <img src="screenshot.png" alt="Description of Screenshot" class="screenshot">
+        <p>Make sure to replace the source with your actual image path.</p>
+
+        <h2 id="section4">Conclusion</h2>
+        <p>This section wraps up the article and provides final thoughts or calls to action.</p>
     </div>
-    <p>Feel free to modify the code as needed.</p>
-
-    <h2 id="section3">Section 3: Screenshots</h2>
-    <p>Below is an example of a screenshot:</p>
-    <img src="screenshot.png" alt="Description of Screenshot" class="screenshot">
-    <p>Make sure to replace the source with your actual image path.</p>
-
-    <h2 id="section4">Conclusion</h2>
-    <p>This section wraps up the article and provides final thoughts or calls to action.</p>
 
     <!-- Inline JavaScript -->
     <script>
-        // You can add any JavaScript functionality here if needed
+        // Toggle nested lists in the sidebar
+        const toggles = document.querySelectorAll('.toggle');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const nested = toggle.querySelector('.nested');
+                if (nested.style.display === "block") {
+                    nested.style.display = "none";
+                } else {
+                    nested.style.display = "block";
+                }
+            });
+        });
+
         console.log('Blog article loaded successfully.');
     </script>
 
