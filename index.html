@@ -1,1 +1,96 @@
-"Hello, world! This is my personal page hosted on GitHub pages."
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Article Template</title>
+
+    <!-- Google Fonts - Nunito -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Inline CSS -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif; /* Changed to Nunito */
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .toc {
+            background-color: #e2e2e2;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .code-snippet {
+            background-color: #eee;
+            border-left: 5px solid #007BFF;
+            padding: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .screenshot {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Blog Article Title</h1>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1">Section 1: Introduction</a></li>
+            <li><a href="#section2">Section 2: Code Snippets</a></li>
+            <li><a href="#section3">Section 3: Screenshots</a></li>
+            <li><a href="#section4">Conclusion</a></li>
+        </ul>
+    </div>
+
+    <!-- Article Sections -->
+    <h2 id="section1">Section 1: Introduction</h2>
+    <p>This section introduces the topic of the blog article. You can provide background information and set the stage for the content that follows.</p>
+
+    <h2 id="section2">Section 2: Code Snippets</h2>
+    <p>Here is an example of a code snippet:</p>
+    <div class="code-snippet">
+        <pre>
+<code>
+function helloWorld() {
+    console.log('Hello, World!');
+}
+</code>
+        </pre>
+    </div>
+    <p>Feel free to modify the code as needed.</p>
+
+    <h2 id="section3">Section 3: Screenshots</h2>
+    <p>Below is an example of a screenshot:</p>
+    <img src="screenshot.png" alt="Description of Screenshot" class="screenshot">
+    <p>Make sure to replace the source with your actual image path.</p>
+
+    <h2 id="section4">Conclusion</h2>
+    <p>This section wraps up the article and provides final thoughts or calls to action.</p>
+
+    <!-- Inline JavaScript -->
+    <script>
+        // You can add any JavaScript functionality here if needed
+        console.log('Blog article loaded successfully.');
+    </script>
+
+</body>
+</html>
